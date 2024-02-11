@@ -1,7 +1,13 @@
 const Asset = require('../model/assetsModel');
 
 module.exports = {
-  getAllModels: ()=> {
-    return Asset.find();
+  getAllAssets: async () => {
+    return await Asset.find()
+    .then();
+  },
+
+  createAsset: async (body) => {
+    const newAsset = await Asset(body);
+    return newAsset.save();
   }
 }

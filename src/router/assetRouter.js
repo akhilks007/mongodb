@@ -9,6 +9,7 @@ const assetRouter = express.Router();
 
 assetRouter
   .route(assetRoutes.assets)
-  .get(assetController.getassets)
+  .get(assetController.getAssets)
+  .post(assetController.createAsset);
 
 module.exports = assetRouter;
