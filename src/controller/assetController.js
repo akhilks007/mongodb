@@ -1,8 +1,12 @@
-const Connect = require('../client/dbConnection');
+const AssetService = require('../services/assets');
 
 module.exports = {
-  getassets: (req, res)=>{
-    const asset = new Connect('my_assets');
-    res.send(`${JSON.stringify(asset)}`);
+  getassets: async (req, res)=>{
+    const allAssets = AssetService.getAllModels();
+    allAssets
+      .then(result => res.send(result))
+      .catch(err => res.send(err))
+    //   console.log(allAssets);
+    // res.send(allAssets);
   }
 };

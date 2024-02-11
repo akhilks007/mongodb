@@ -1,4 +1,8 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+const connect = require('./client/dbConnection');
+
 const router = require('./router');
 
 const app = express();
@@ -10,5 +14,6 @@ app.use('/*', (req, res)=>{
 })
 
 app.listen(port, ()=> {
+  connect();
   console.log(`listening to http://localhost:${port}`)
 });
